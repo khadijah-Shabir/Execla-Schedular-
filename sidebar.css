@@ -1,0 +1,554 @@
+/* Execla Sidebar — Chrome Extension Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+
+#execla-sidebar-root {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  z-index: 999999;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  color: #2C2C2A;
+  background: #FDFCFA;
+  border-left: 1px solid #E8E6DF;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+#execla-sidebar-root.hidden {
+  transform: translateX(100%);
+}
+
+/* Toggle button */
+#execla-toggle-btn {
+  position: fixed;
+  top: 50%;
+  right: 360px;
+  transform: translateY(-50%);
+  z-index: 999998;
+  width: 28px;
+  height: 56px;
+  background: linear-gradient(135deg, #1D9E75, #0F6E56);
+  border: none;
+  border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+  transition: right 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#execla-toggle-btn.collapsed {
+  right: 0;
+}
+
+/* Header */
+.execla-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid #E8E6DF;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.execla-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.execla-logo-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #1D9E75, #0F6E56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.execla-logo-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.execla-close-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888780;
+  font-size: 16px;
+}
+
+.execla-close-btn:hover {
+  background: #F1EFE8;
+}
+
+/* Tabs */
+.execla-tabs {
+  display: flex;
+  border-bottom: 1px solid #E8E6DF;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.execla-tab {
+  flex: 1;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #888780;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.execla-tab:hover {
+  color: #2C2C2A;
+  background: #FAFAF7;
+}
+
+.execla-tab.active {
+  color: #1D9E75;
+  font-weight: 500;
+  border-bottom-color: #1D9E75;
+}
+
+.execla-tab-icon {
+  font-size: 15px;
+}
+
+/* Content area */
+.execla-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.execla-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.execla-content::-webkit-scrollbar-thumb {
+  background: #D3D1C7;
+  border-radius: 4px;
+}
+
+/* Section labels */
+.execla-section-label {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #888780;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+
+/* Cards */
+.execla-card {
+  background: #fff;
+  border: 0.5px solid #E8E6DF;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+/* Badge */
+.execla-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.execla-badge.purple {
+  background: #EEEDFE;
+  color: #534AB7;
+  border: 0.5px solid #CECBF6;
+}
+
+.execla-badge.green {
+  background: #EAF3DE;
+  color: #3B6D11;
+  border: 0.5px solid #C0DD97;
+}
+
+.execla-badge.amber {
+  background: #FAEEDA;
+  color: #854F0B;
+  border: 0.5px solid #FAC775;
+}
+
+.execla-badge.blue {
+  background: #E6F1FB;
+  color: #185FA5;
+  border: 0.5px solid #B5D4F4;
+}
+
+.execla-badge.gray {
+  background: #F1EFE8;
+  color: #5F5E5A;
+  border: 0.5px solid #D3D1C7;
+}
+
+/* Info grid */
+.execla-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5px 10px;
+  font-size: 12.5px;
+}
+
+.execla-info-label {
+  color: #B4B2A9;
+}
+
+.execla-info-value {
+  color: #2C2C2A;
+  font-weight: 500;
+}
+
+/* Time slots */
+.execla-slot {
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 0.5px solid #E8E6DF;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.12s;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.execla-slot:hover {
+  border-color: #1D9E75;
+  background: #1D9E7508;
+}
+
+.execla-slot.selected {
+  border: 1.5px solid #1D9E75;
+  background: #1D9E750C;
+}
+
+.execla-slot-day {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.execla-slot-time {
+  font-size: 12px;
+  color: #888780;
+}
+
+.execla-slot-check {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid #D3D1C7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: transparent;
+  transition: all 0.12s;
+}
+
+.execla-slot.selected .execla-slot-check {
+  background: #1D9E75;
+  border-color: #1D9E75;
+  color: #fff;
+}
+
+/* Buttons */
+.execla-btn {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.12s;
+}
+
+.execla-btn:active {
+  transform: scale(0.97);
+}
+
+.execla-btn.primary {
+  background: linear-gradient(135deg, #1D9E75, #0F6E56);
+  color: #fff;
+}
+
+.execla-btn.primary:hover {
+  box-shadow: 0 2px 8px rgba(29, 158, 117, 0.3);
+}
+
+.execla-btn.primary:disabled {
+  background: #D3D1C7;
+  cursor: default;
+  box-shadow: none;
+}
+
+.execla-btn.secondary {
+  background: #fff;
+  color: #5F5E5A;
+  border: 0.5px solid #D3D1C7;
+}
+
+.execla-btn.secondary:hover {
+  background: #F7F6F3;
+}
+
+.execla-btn.success {
+  background: linear-gradient(135deg, #1D9E75, #0F6E56);
+  color: #fff;
+}
+
+/* Text area */
+.execla-textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px 12px;
+  border: 0.5px solid #E8E6DF;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #2C2C2A;
+  background: #fff;
+  resize: vertical;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.execla-textarea:focus {
+  border-color: #1D9E75;
+  box-shadow: 0 0 0 2px rgba(29, 158, 117, 0.1);
+}
+
+/* Input */
+.execla-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 0.5px solid #E8E6DF;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #2C2C2A;
+  background: #fff;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.execla-input:focus {
+  border-color: #1D9E75;
+}
+
+/* Tone buttons */
+.execla-tone-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.execla-tone-btn {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 0.5px solid #E8E6DF;
+  background: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11.5px;
+  color: #5F5E5A;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.execla-tone-btn:hover {
+  border-color: #1D9E75;
+  color: #1D9E75;
+}
+
+.execla-tone-btn.active {
+  background: #1D9E750C;
+  border-color: #1D9E75;
+  color: #1D9E75;
+  font-weight: 500;
+}
+
+/* Draft preview */
+.execla-draft {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 0.5px solid #E8E6DF;
+  background: #fff;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #444441;
+  white-space: pre-line;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Loading spinner */
+.execla-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  gap: 12px;
+}
+
+.execla-spinner {
+  width: 28px;
+  height: 28px;
+  border: 2.5px solid #E8E6DF;
+  border-top-color: #1D9E75;
+  border-radius: 50%;
+  animation: execla-spin 0.7s linear infinite;
+}
+
+@keyframes execla-spin {
+  to { transform: rotate(360deg); }
+}
+
+.execla-loading-text {
+  font-size: 12.5px;
+  color: #888780;
+}
+
+/* Status messages */
+.execla-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px;
+  text-align: center;
+  gap: 8px;
+}
+
+.execla-status-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.execla-status-icon.success {
+  background: #EAF3DE;
+}
+
+.execla-status-icon.empty {
+  background: #F1EFE8;
+}
+
+.execla-status-title {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.execla-status-desc {
+  font-size: 12.5px;
+  color: #888780;
+  line-height: 1.5;
+}
+
+/* Action row */
+.execla-action-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.execla-action-row .execla-btn {
+  flex: 1;
+}
+
+/* Separator */
+.execla-sep {
+  height: 1px;
+  background: #F1EFE8;
+  margin: 14px 0;
+}
+
+/* No email state */
+.execla-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  text-align: center;
+  flex: 1;
+}
+
+/* Settings notice */
+.execla-settings-notice {
+  padding: 10px 14px;
+  background: #FAEEDA;
+  border-radius: 8px;
+  font-size: 12px;
+  color: #854F0B;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+/* Pulse dot */
+.execla-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #534AB7;
+  animation: execla-pulse 2s infinite;
+}
+
+@keyframes execla-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
